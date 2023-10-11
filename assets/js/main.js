@@ -118,6 +118,23 @@ workheader.addEventListener("click", () => {
   }
 });
 
+// PORTFOLIO SWIPER
+let swiper = new Swiper(".mySwiper", {
+  cssMode: true,
+  loop: true,
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  mousewheel: true,
+  keyboard: true,
+});
+
 // SCROLL SECTIONS ACTIVE LINK
 const sections = document.querySelectorAll("section[id]");
 
@@ -194,7 +211,7 @@ themeButton.addEventListener("click", () => {
 
 // Typing Animation using Typed JS
 var typed = new Typed(".type", {
-  strings: ["a Web", "a JavaScript", "a React"],
+  strings: ["a Web", "an Android", "a Blockchain"],
   smartBackspace: true,
   startDelay: 1000,
   typeSpeed: 130,
