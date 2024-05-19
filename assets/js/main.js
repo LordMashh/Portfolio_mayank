@@ -208,10 +208,24 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+const circles = document.querySelectorAll('.circle');
+
+document.addEventListener('mousemove', (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  circles.forEach((circle, index) => {
+    const delay = index * 100;
+    setTimeout(() => {
+      circle.style.left = `${x}px`;
+      circle.style.top = `${y}px`;
+    }, delay);
+  });
+});
 
 // Typing Animation using Typed JS
 var typed = new Typed(".type", {
-  strings: ["a Web", "an React", "an Awesome"],
+  strings: ["a Web", "a React", "an Awesome"],
   smartBackspace: true,
   startDelay: 1000,
   typeSpeed: 130,
@@ -219,3 +233,39 @@ var typed = new Typed(".type", {
   backSpeed: 60,
   loop: true,
 });
+
+/* Cursor chaser*/
+// document.addEventListener('DOMContentLoaded', function() {
+//   const cursorChaserContainer = document.getElementById('cursor-chaser-container');
+//   const sizes = ['size-1', 'size-2', 'size-3'];
+//   const circles = sizes.map(size => {
+//     const circle = document.createElement('div');
+//     circle.classList.add('circle', size);
+//     cursorChaserContainer.appendChild(circle);
+//     return circle;
+//   });
+
+//   document.addEventListener('mousemove', (e) => {
+//     const { clientX: x, clientY: y } = e;
+//     circles.forEach((circle, index) => {
+//       const delay = index * 20; // Delay to create trailing effect
+//       setTimeout(() => {
+//         circle.style.transform = `translate(${x}px, ${y}px)`;
+//       }, delay);
+//     });
+//   });
+
+//   // Theme toggle logic
+//   const themeButton = document.getElementById('theme-button');
+//   const body = document.body;
+
+//   themeButton.addEventListener('click', () => {
+//     if (body.classList.contains('light-mode')) {
+//       body.classList.remove('light-mode');
+//       body.classList.add('dark-mode');
+//     } else {
+//       body.classList.remove('dark-mode');
+//       body.classList.add('light-mode');
+//     }
+//   });
+// });
